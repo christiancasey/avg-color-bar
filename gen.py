@@ -50,7 +50,7 @@ def genAvgHue(img):
 	avgHSV = colorsys.rgb_to_hsv(*[x/255. for x in avgHSV])
 
 	#highest value and saturation
-	avgHSV = [avgHSV[0], 1.0, 1.0]
+	avgHSV = [avgHSV[0], 1.0, avgHSV[2]]
 
 	avgHSV = colorsys.hsv_to_rgb(*avgHSV)
 
@@ -273,12 +273,11 @@ images = glob.glob(strFileSearch)	#glob allows to select only jpeg (and to use '
 images.sort()							# string sort works fine with strings of equal length (use leading zeros)
 
 barColors = []
+method = "rgb"
 
-print('Processing images...')
 #getting the color for each frame
 for img in tqdm(images):
-	# print(img)
-	img = Image.open(img).resize((25,25))
+	img = Image.open(img)
 
 	#applying correct method (now with command line args)
 	if args.rgb:
