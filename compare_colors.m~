@@ -1,0 +1,21 @@
+clc; clear; close all;
+whitebg('k'); colormap('gray'); plottools('off');
+
+vFilenames = { 'exp' 'noexp' 'resize' };
+vImages = cell(3,1);
+for i = 1:3
+	vImages{i} = imread([vFilenames{i} '.png']);	% load the images using the filenames above
+	vImages{i} = vImages{i}(1,:,:);					% use only the first row, since rows are identical
+	vImages{i} = squeeze( vImages{i} );				% convert 3d matrix with one row into 2d with image_width rows and 3 (rgb) columns
+	figure(i);
+	imagescz(vImages{i});
+end
+
+
+%%
+
+vDist = cell(3,1);
+for i = 1:3
+	j = mod(i,3
+	vDist{i} = dist(vImages{i}, vImages{j});
+	
