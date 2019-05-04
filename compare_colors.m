@@ -24,7 +24,7 @@ for i = 1:3
 	
 	vHist{i} = histc(vDist{i}, linspace(0, 40, 20));
 	plot(vHist{i}, 'Color', vColormap(i,:), ...
-		'DisplayName', [ vFilenames{i} ' ? ' vFilenames{j} ])	% Display stuff
+		'DisplayName', [ vFilenames{i} ' - ' vFilenames{j} ])	% Display stuff
 end
 legend show;
 title('Distance Distributions');
