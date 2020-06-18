@@ -8,6 +8,8 @@ import glob
 import argparse
 from tqdm import tqdm		# Simple progess bar
 
+# Fake comment 
+
 def genAvgRGB(img):
 
 	#converting image to rgb
